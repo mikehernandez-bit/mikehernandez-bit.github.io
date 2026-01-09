@@ -103,8 +103,7 @@
           <div class="hero__cta">
             <a class="btn btn--primary" href="#projects">Ver proyectos</a>
             <a class="btn" href="#contact">Contactar</a>
-            <!-- Si aún no tienes el PDF, puedes comentar esta línea -->
-            <a class="btn btn--ghost" href="assets/docs/CV-Jhoan-Hernandez.pdf" target="_blank" rel="noopener">
+<a class="btn btn--ghost" href="assets/docs/CV-Jhoan-Hernandez.pdf" target="_blank" rel="noopener">
               Descargar CV
             </a>
           </div>
@@ -294,29 +293,36 @@
             </ul>
 
             <div class="project__actions">
-              <!-- Por ahora: tu perfil GitHub. Luego lo cambias al repo exacto -->
-              <a class="btn btn--small" href="https://github.com/mikehernandez-bit" target="_blank" rel="noopener noreferrer">
+<a class="btn btn--small" href="https://github.com/mikehernandez-bit" target="_blank" rel="noopener noreferrer">
                 Código
               </a>
-              <a class="btn btn--small btn--ghost" href="#" aria-disabled="true">
-                Demo (opcional)
-              </a>
-            </div>
+</div>
           </article>
 
-          <article class="card project project--placeholder">
+                    <article class="card project">
             <header class="project__head">
-              <h3 class="h3">Próximo proyecto</h3>
-              <span class="pill">En progreso</span>
+              <h3 class="h3">Investigación — Detección de EPP en tiempo real (YOLO)</h3>
+              <span class="pill">En curso</span>
             </header>
 
             <p class="muted">
-              Aquí irán tus próximos proyectos. Añade 2–5 proyectos para que tu portafolio quede completo.
+              Detección de equipo de protección personal (EPP) en entornos industriales mediante Deep Learning.
+              <span class="muted">2025–Actual</span><br />
+              YOLO (v8/v5) · Edge Computing · App en tiempo real (webcam)
             </p>
 
-            <div class="project__actions">
-              <a class="btn btn--small btn--ghost" href="#contact">¿Lo armamos?</a>
+            <div class="skills">
+              <span class="skill"><span class="skill__emoji" aria-hidden="true">🧠</span> YOLO (v8/v5)</span>
+              <span class="skill"><span class="skill__emoji" aria-hidden="true">⚡</span> Edge Computing</span>
+              <span class="skill"><span class="skill__emoji" aria-hidden="true">🎥</span> Tiempo real</span>
+              <span class="skill"><span class="skill__emoji" aria-hidden="true">📈</span> mAP / F1</span>
             </div>
+
+            <ul class="list">
+              <li>Entrenamiento y comparación de arquitecturas YOLO (v8s/v8n/v5s/v5n/v5l) para detección multiclase de EPP.</li>
+              <li>Desarrollo de aplicación de escritorio en tiempo real usando webcam e integración con móvil (p.ej. iVCam).</li>
+              <li>Evaluación con métricas estándar (Precisión, Recall, F1-Score, mAP) y análisis visual de predicciones.</li>
+            </ul>
           </article>
         </div>
       </div>
@@ -327,39 +333,62 @@
       <div class="container">
         <header class="section__head">
           <h2>Licencias y certificaciones</h2>
-          <p class="muted">Coloca PDFs en assets/certs y apunta aquí.</p>
+          <p class="muted">Certificados y cursos relevantes para mi perfil profesional.</p>
         </header>
 
         <div class="grid grid--2">
-          <article class="card">
-            <h3 class="h3">SQL Server – Base de Datos</h3>
-            <p class="muted">Universidad Nacional de Ingeniería · mar. 2025</p>
-            <a class="link" href="assets/certs/sql-server-uni.pdf" target="_blank" rel="noopener">Ver certificado</a>
-          </article>
+<article class="card cert">
+  <h3 class="h3">Scrum Fundamentals Certified</h3>
+  <p class="muted">SCRUMstudy · dic. 2025</p>
 
-          <article class="card">
-            <h3 class="h3">Conceptos básicos de redes</h3>
-            <p class="muted">Cisco Networking Academy · ago. 2025</p>
-            <a class="link" href="assets/certs/cisco-redes.pdf" target="_blank" rel="noopener">Ver certificado</a>
-          </article>
+  <a class="cert__preview" href="assets/certs/ScrumFundamentalsCertified.pdf" target="_blank" rel="noopener">
+    <img src="assets/certs/previews/scrumfundamentalscertified-p1.png" alt="Vista previa del certificado Scrum Fundamentals Certified" loading="lazy" />
+  </a>
 
-          <article class="card">
-            <h3 class="h3">Introducción a Cisco Packet Tracer</h3>
-            <p class="muted">Cisco Networking Academy · ago. 2025</p>
-            <a class="link" href="assets/certs/cisco-packet-tracer.pdf" target="_blank" rel="noopener">Ver certificado</a>
-          </article>
+  <a class="link" href="assets/certs/ScrumFundamentalsCertified.pdf" target="_blank" rel="noopener">Ver certificado (PDF)</a>
+</article>
+<article class="card cert">
+  <h3 class="h3">SQL Server – Base de Datos</h3>
+  <p class="muted">Universidad Nacional de Ingeniería · mar. 2025</p>
 
-          <article class="card">
-            <h3 class="h3">Pasantía Nacional Universitaria</h3>
-            <p class="muted">Universidad Nacional del Santa · dic. 2025</p>
-            <a class="link" href="assets/certs/pasantia-uns.pdf" target="_blank" rel="noopener">Ver certificado</a>
-          </article>
+  <a class="cert__preview" href="assets/certs/sql-server-uni.pdf" target="_blank" rel="noopener">
+    <img src="assets/certs/previews/sql-server-uni-p1.png" alt="Vista previa del certificado SQL Server – Base de Datos" loading="lazy" />
+  </a>
+
+  <a class="link" href="assets/certs/sql-server-uni.pdf" target="_blank" rel="noopener">Ver certificado (PDF)</a>
+</article>
+<article class="card cert">
+  <h3 class="h3">Conceptos básicos de redes</h3>
+  <p class="muted">Cisco Networking Academy · ago. 2025</p>
+
+  <a class="cert__preview" href="assets/certs/cisco-redes.pdf" target="_blank" rel="noopener">
+    <img src="assets/certs/previews/cisco-redes-p1.png" alt="Vista previa del certificado Conceptos básicos de redes" loading="lazy" />
+  </a>
+
+  <a class="link" href="assets/certs/cisco-redes.pdf" target="_blank" rel="noopener">Ver certificado (PDF)</a>
+</article>
+<article class="card cert">
+  <h3 class="h3">Introducción a Cisco Packet Tracer</h3>
+  <p class="muted">Cisco Networking Academy · ago. 2025</p>
+
+  <a class="cert__preview" href="assets/certs/cisco-packet-tracer.pdf" target="_blank" rel="noopener">
+    <img src="assets/certs/previews/cisco-packet-tracer-p1.png" alt="Vista previa del certificado Introducción a Cisco Packet Tracer" loading="lazy" />
+  </a>
+
+  <a class="link" href="assets/certs/cisco-packet-tracer.pdf" target="_blank" rel="noopener">Ver certificado (PDF)</a>
+</article>
+<article class="card cert">
+  <h3 class="h3">Pasantía Nacional Universitaria</h3>
+  <p class="muted">Universidad Nacional del Santa · dic. 2025</p>
+
+  <a class="cert__preview" href="assets/certs/pasantia-uns.pdf" target="_blank" rel="noopener">
+    <img src="assets/certs/previews/pasantia-uns-p1.png" alt="Vista previa del certificado Pasantía Nacional Universitaria" loading="lazy" />
+  </a>
+
+  <a class="link" href="assets/certs/pasantia-uns.pdf" target="_blank" rel="noopener">Ver certificado (PDF)</a>
+</article>
         </div>
-
-        <p class="muted section__note">
-          *Si aún no subes los PDFs, estos links darán 404. Puedes comentarlos o subir los archivos.*
-        </p>
-      </div>
+</div>
     </section>
 
     <!-- CONTACTO -->

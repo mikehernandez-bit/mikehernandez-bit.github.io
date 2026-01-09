@@ -506,3 +506,24 @@ input:focus, textarea:focus{
   html{ scroll-behavior: auto; }
   .reveal{ opacity: 1; transform: none; transition: none; }
 }
+
+
+/* =========================
+   Certificados
+========================= */
+.cert__preview{
+  display: block;
+  margin: .8rem 0 .6rem;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--card) 70%, transparent);
+}
+
+.cert__preview img{
+  display: block;
+  width: 100%;
+  height: clamp(220px, 30vw, 340px);
+  object-fit: contain;
+  background: color-mix(in srgb, var(--btn) 70%, transparent);
+}
