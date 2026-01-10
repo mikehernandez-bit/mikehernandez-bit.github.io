@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html data-theme="dark" lang="es">
 
 <head>
@@ -24,6 +23,10 @@
     href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Crect width="100" height="100" rx="22" fill="%237c3aed"/%3E%3Ctext x="50" y="62" text-anchor="middle" font-size="44" font-family="Arial" fill="white"%3EJH%3C/text%3E%3C/svg%3E'
     rel="icon" type="image/svg+xml" />
   <meta content="#0b0f17" name="theme-color" />
+  <link rel="canonical" href="https://mikehernandez-bit.github.io/" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+
   <link href="css/styles.css" rel="stylesheet" />
   <!-- Devicon (íconos tech) -->
   <link href="https://cdn.jsdelivr.net/npm/devicon@2.17.0/devicon.min.css" rel="stylesheet" />
@@ -68,20 +71,31 @@
         <div class="nav__menu" id="navMenu">
           <a class="nav__link" data-i18n="nav_about" href="#about">Sobre mí</a>
           <a class="nav__link" data-i18n="nav_skills" href="#skills">Habilidades</a>
+          <a class="nav__link" data-i18n="nav_engineering" href="#engineering">Ingeniería</a>
           <a class="nav__link" data-i18n="nav_projects" href="#projects">Proyectos</a>
           <a class="nav__link" data-i18n="nav_certs" href="#certs">Certificaciones</a>
           <a class="nav__link" data-i18n="nav_contact" href="#contact">Contacto</a>
         </div>
       </nav>
-      <button aria-label="Cambiar tema" class="theme-btn" id="themeBtn" type="button">
-        <span class="sr-only">Cambiar tema</span>
+      <button aria-label="Cambiar tema" class="theme-btn" data-i18n-aria="toggle_theme_sr" id="themeBtn" type="button">
+        <span class="sr-only" data-i18n="toggle_theme_sr">Cambiar tema</span>
         🌓
-      </button><button aria-label="Cambiar idioma" class="theme-btn lang-btn" data-i18n-aria="toggle_lang_sr"
-        id="langBtn" type="button"><span class="sr-only" data-i18n="toggle_lang_sr">Cambiar idioma</span>
+      </button>
+
+      <button aria-label="Abrir paleta de comandos" class="theme-btn cmd-btn" data-i18n-aria="open_palette_aria"
+        id="cmdBtn" type="button">
+        <span class="sr-only" data-i18n="open_palette">Abrir comandos</span>
+        <span aria-hidden="true" class="cmd-btn__key" id="cmdKeyHint">⌘K</span>
+      </button>
+
+      <button aria-label="Cambiar idioma" class="theme-btn lang-btn" data-i18n-aria="toggle_lang_sr" id="langBtn"
+        type="button">
+        <span class="sr-only" data-i18n="toggle_lang_sr">Cambiar idioma</span>
         <span id="langLabel">EN</span>
       </button>
     </div>
   </header>
+
   <main id="contenido">
     <!-- HERO -->
     <section class="hero">
@@ -91,11 +105,15 @@
           <h1 class="hero__title" data-i18n-html="hero_title">
             Estudiante de Ingeniería de Sistemas e Informática <span class="accent">| Software Developer</span>
           </h1>
+
           <p class="hero__lead" data-i18n-html="hero_lead">
-            Soy <strong>Jhoan Hernández</strong>. Me apasiona el desarrollo de software y la lógica de programación.
+            Soy <strong>Jhoan Hernández</strong>. Me enfoco en desarrollar soluciones de software con base en lógica,
+            buenas prácticas y control de versiones. También construyo interfaces web responsivas con
+            <strong>HTML</strong>, <strong>CSS</strong> y <strong>JavaScript</strong>.
             Trabajo con <strong>Java</strong>, <strong>Python</strong>, <strong>SQL Server</strong> y
             <strong>Git</strong>.
           </p>
+
           <div class="hero__cta">
             <a class="btn btn--primary" data-i18n="cta_projects" href="#projects">Ver proyectos</a>
             <a class="btn" data-i18n="cta_contact" href="#contact">Contactar</a>
@@ -104,6 +122,7 @@
               Descargar CV
             </a>
           </div>
+
           <ul class="links">
             <li>
               <a class="link" href="https://github.com/mikehernandez-bit" rel="noopener noreferrer" target="_blank">
@@ -130,6 +149,7 @@
             </li>
           </ul>
         </div>
+
         <div class="hero__card card">
           <div class="profile">
             <img alt="Foto de Jhoan Hernández" class="profile__img" loading="lazy"
@@ -143,49 +163,63 @@
               <p class="profile__role muted" data-i18n="profile_role">Estudiante · UNS</p>
             </div>
           </div>
+
           <div class="quick">
             <div class="quick__item">
               <p class="quick__label" data-i18n="quick_stack">Stack</p>
-              <p class="quick__value">Java · Python · SQL Server · Git</p>
+              <p class="quick__value" data-i18n="quick_stack_value">Java · Python · SQL Server · Git</p>
             </div>
             <div class="quick__item">
               <p class="quick__label" data-i18n="quick_interest">Interés</p>
-              <p class="quick__value">Backend · Datos · Web</p>
+<p class="quick__value" data-i18n="quick_interest_value">Frontend · Backend · IA · Redes</p>
+            </div>
+            <div class="quick__item">
+              <p class="quick__label" data-i18n="quick_availability">Disponibilidad</p>
+              <p class="quick__value" data-i18n="quick_availability_value">Prácticas Preprofesionales 2026</p>
             </div>
           </div>
         </div>
       </div>
     </section>
+
     <!-- SOBRE MI -->
     <section class="section reveal" id="about">
       <div class="container">
         <header class="section__head">
           <h2 data-i18n="about_title">Sobre mí</h2>
         </header>
+
         <div class="card">
           <p data-i18n-html="about_p1">
-            Estudiante de Ingeniería de Sistemas de la <strong>Universidad Nacional del Santa (UNS)</strong>,
-            apasionado por el desarrollo de software y la lógica de programación.
+            Estudiante de Ingeniería de Sistemas e Informática en la <strong>Universidad Nacional del Santa
+              (UNS)</strong>.
+            Me interesa construir software claro, mantenible y orientado a resolver problemas reales.
           </p>
-          <p data-i18n-html="about_p2">
-            Tengo experiencia usando <strong>Java</strong> para aplicaciones orientadas a objetos y
-            <strong>Python</strong>
-            para automatización, scripts y manejo de datos. Complemento con <strong>SQL</strong> (SQL Server),
-            control de versiones con <strong>Git/GitHub</strong> y fundamentos de redes.
+<p data-i18n-html="about_p2">
+            He trabajado con <strong>Java</strong> (POO) y <strong>Python</strong> para automatización y manejo de
+            datos.
+            Uso <strong>SQL Server</strong> para consultas y modelado, y <strong>Git/GitHub</strong> para control de
+            versiones.
+            En frontend, desarrollo interfaces con <strong>HTML/CSS/JavaScript</strong>, aplicando diseño responsivo y
+            buenas prácticas. También cuento con fundamentos de <strong>redes</strong> y metodologías como
+            <strong>Scrum</strong>.
           </p>
+
           <p class="muted" data-i18n-html="about_p3">
-            Busco una oportunidad de <strong>Prácticas Preprofesionales</strong> donde pueda aportar y aprender en un
-            entorno real.
+            Busco <strong>Prácticas Preprofesionales 2026</strong> en desarrollo de software, donde pueda aportar,
+            aprender del equipo y mejorar continuamente.
           </p>
         </div>
       </div>
     </section>
+
     <!-- HABILIDADES (CON ICONOS) -->
     <section class="section reveal" id="skills">
       <div class="container">
         <header class="section__head">
           <h2 data-i18n="skills_title">Habilidades</h2>
         </header>
+
         <div class="grid grid--skills">
           <article class="card">
             <h3 class="h3" data-i18n="skills_languages">Lenguajes</h3>
@@ -197,7 +231,6 @@
               <span class="skill"><i aria-hidden="true" class="devicon-css3-plain colored"></i> CSS3</span>
             </div>
           </article>
-
           <article class="card">
             <h3 class="h3" data-i18n="skills_frameworks">Frameworks</h3>
             <div class="skills">
@@ -215,11 +248,19 @@
           </article>
 
           <article class="card">
+            <h3 class="h3" data-i18n="skills_data">Datos</h3>
+            <div class="skills">
+              <span class="skill"><span aria-hidden="true" class="skill__emoji">🧮</span> NumPy</span>
+              <span class="skill"><span aria-hidden="true" class="skill__emoji">🐼</span> Pandas</span>
+              <span class="skill"><span aria-hidden="true" class="skill__emoji">📈</span> Matplotlib</span>
+            </div>
+          </article>
+
+          <article class="card">
             <h3 class="h3" data-i18n="skills_tools_methods">Herramientas / Metodologías</h3>
             <div class="skills">
               <span class="skill"><i aria-hidden="true" class="devicon-git-plain colored"></i> Git</span>
               <span class="skill"><i aria-hidden="true" class="devicon-github-original"></i> GitHub</span>
-              <!-- Scrum (SVG inline) -->
               <span class="skill">
                 <svg aria-hidden="true" class="skill__icon" viewBox="0 0 24 24">
                   <path
@@ -228,7 +269,6 @@
                 </svg>
                 Scrum
               </span>
-              <!-- Packet Tracer / Redes (SVG inline) -->
               <span class="skill">
                 <svg aria-hidden="true" class="skill__icon" viewBox="0 0 24 24">
                   <path d="M4 6h16v4H4V6Zm0 8h7v4H4v-4Zm9 0h7v4h-7v-4Z" fill="currentColor"></path>
@@ -237,15 +277,79 @@
               </span>
             </div>
           </article>
+
+          <article class="card">
+            <h3 class="h3" data-i18n="skills_learning">En aprendizaje</h3>
+            <div class="skills">
+              <span class="skill"><i aria-hidden="true" class="devicon-typescript-plain colored"></i> TypeScript</span>
+              <span class="skill"><i aria-hidden="true" class="devicon-react-original colored"></i> React</span>
+              <span class="skill"><i aria-hidden="true" class="devicon-docker-plain colored"></i> Docker</span>
+              <span class="skill"><i aria-hidden="true" class="devicon-linux-plain colored"></i> Linux</span>
+              <span class="skill"><span aria-hidden="true" class="skill__emoji">⚙️</span> CI/CD</span>
+              <span class="skill"><span aria-hidden="true" class="skill__emoji">⚡</span> FastAPI</span>
+            </div>
+            <p class="muted tiny" data-i18n="skills_learning_note">Roadmap 2026: deploy, buenas prácticas y tooling.</p>
+          </article>
         </div>
       </div>
     </section>
+
+    <!-- INGENIERÍA -->
+    <section class="section reveal" id="engineering">
+      <div class="container">
+        <header class="section__head">
+          <h2 data-i18n="engineering_title">Ingeniería de Sistemas</h2>
+        </header>
+
+        <div class="grid grid--3">
+          <article class="card">
+            <h3 class="h3" data-i18n="eng1_title">Análisis y modelado</h3>
+            <p class="muted" data-i18n="eng1_desc">
+              Requisitos claros, estructura modular y documentación para que el software sea mantenible.
+            </p>
+            <div class="skills">
+              <span class="skill"><span aria-hidden="true" class="skill__emoji">🧩</span> UML</span>
+              <span class="skill"><span aria-hidden="true" class="skill__emoji">🧠</span> POO</span>
+              <span class="skill"><span aria-hidden="true" class="skill__emoji">📐</span> SOLID</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3 class="h3" data-i18n="eng2_title">Backend + Datos</h3>
+            <p class="muted" data-i18n="eng2_desc">
+              APIs, ETL y persistencia: convierto datos en funcionalidades que aportan valor.
+            </p>
+            <div class="skills">
+              <span class="skill"><i aria-hidden="true" class="devicon-python-plain colored"></i> Python</span>
+              <span class="skill"><i aria-hidden="true" class="devicon-java-plain colored"></i> Java</span>
+              <span class="skill"><span aria-hidden="true" class="skill__emoji">🗃️</span> SQL</span>
+              <span class="skill"><span aria-hidden="true" class="skill__emoji">🔌</span> REST</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3 class="h3" data-i18n="eng3_title">Calidad y entrega</h3>
+            <p class="muted" data-i18n="eng3_desc">
+              Git, revisión, pruebas y automatización (cuando aplica) para entregar con confianza.
+            </p>
+            <div class="skills">
+              <span class="skill"><i aria-hidden="true" class="devicon-git-plain colored"></i> Git</span>
+              <span class="skill"><span aria-hidden="true" class="skill__emoji">✅</span> Testing</span>
+              <span class="skill"><span aria-hidden="true" class="skill__emoji">📄</span> Docs</span>
+              <span class="skill"><span aria-hidden="true" class="skill__emoji">⚙️</span> CI/CD</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- PROYECTOS -->
     <section class="section reveal" id="projects">
       <div class="container">
         <header class="section__head">
           <h2 data-i18n="projects_title">Proyectos</h2>
         </header>
+
         <div class="grid grid--2">
           <article class="card project">
             <header class="project__head">
@@ -263,7 +367,6 @@
               <span class="skill"><i aria-hidden="true" class="devicon-python-plain colored"></i> Python</span>
               <span class="skill"><i aria-hidden="true" class="devicon-flask-original colored"></i> Flask</span>
               <span class="skill"><i aria-hidden="true" class="devicon-mongodb-plain colored"></i> MongoDB</span>
-              <span class="skill"><span aria-hidden="true" class="skill__emoji">🧠</span> Sentiment (VADER)</span>
               <span class="skill"><span aria-hidden="true" class="skill__emoji">📊</span> Dashboard</span>
             </div>
             <ul class="list">
@@ -278,6 +381,7 @@
               </a>
             </div>
           </article>
+
           <article class="card project">
             <header class="project__head">
               <h3 class="h3" data-i18n="research_title">Investigación — Detección de EPP en tiempo real (YOLO)</h3>
@@ -296,23 +400,25 @@
               <span class="skill"><span aria-hidden="true" class="skill__emoji">📈</span> mAP / F1</span>
             </div>
             <ul class="list">
-              <li>Entrenamiento y comparación de arquitecturas YOLO (v8s/v8n/v5s/v5n/v5l) para detección multiclase de
+              <li data-i18n="research_li1">Entrenamiento y comparación de arquitecturas YOLO (v8s/v8n/v5s/v5n/v5l) para detección multiclase de
                 EPP.</li>
-              <li>Desarrollo de aplicación de escritorio en tiempo real usando webcam e integración con móvil (p.ej.
+              <li data-i18n="research_li2">Desarrollo de aplicación de escritorio en tiempo real usando webcam e integración con móvil (p.ej.
                 iVCam).</li>
-              <li>Evaluación con métricas estándar (Precisión, Recall, F1-Score, mAP) y análisis visual de predicciones.
+              <li data-i18n="research_li3">Evaluación con métricas estándar (Precisión, Recall, F1-Score, mAP) y análisis visual de predicciones.
               </li>
             </ul>
           </article>
         </div>
       </div>
     </section>
-    <!-- CERTIFICACIONES (deja links locales si luego subes PDFs) -->
+
+    <!-- CERTIFICACIONES -->
     <section class="section reveal" id="certs">
       <div class="container">
         <header class="section__head">
           <h2 data-i18n="certs_title">Licencias y certificaciones</h2>
         </header>
+
         <div class="grid grid--2">
           <article class="card cert">
             <h3 class="h3">Scrum Fundamentals Certified</h3>
@@ -324,6 +430,7 @@
             <a class="link" data-i18n="cert_view" href="assets/certs/ScrumFundamentalsCertified.pdf" rel="noopener"
               target="_blank">Ver certificado (PDF)</a>
           </article>
+
           <article class="card cert">
             <h3 class="h3">SQL Server – Base de Datos</h3>
             <p class="muted">Universidad Nacional de Ingeniería · mar. 2025</p>
@@ -334,6 +441,7 @@
             <a class="link" data-i18n="cert_view" href="assets/certs/sql-server-uni.pdf" rel="noopener"
               target="_blank">Ver certificado (PDF)</a>
           </article>
+
           <article class="card cert">
             <h3 class="h3">Conceptos básicos de redes</h3>
             <p class="muted">Cisco Networking Academy · ago. 2025</p>
@@ -344,6 +452,7 @@
             <a class="link" data-i18n="cert_view" href="assets/certs/cisco-redes.pdf" rel="noopener" target="_blank">Ver
               certificado (PDF)</a>
           </article>
+
           <article class="card cert">
             <h3 class="h3">Introducción a Cisco Packet Tracer</h3>
             <p class="muted">Cisco Networking Academy · ago. 2025</p>
@@ -354,6 +463,7 @@
             <a class="link" data-i18n="cert_view" href="assets/certs/cisco-packet-tracer.pdf" rel="noopener"
               target="_blank">Ver certificado (PDF)</a>
           </article>
+
           <article class="card cert">
             <h3 class="h3">Pasantía Nacional Universitaria</h3>
             <p class="muted">Universidad Nacional del Santa · dic. 2025</p>
@@ -364,15 +474,28 @@
             <a class="link" data-i18n="cert_view" href="assets/certs/pasantia-uns.pdf" rel="noopener"
               target="_blank">Ver certificado (PDF)</a>
           </article>
+
+          <article class="card cert">
+            <h3 class="h3">Drones: Soluciones tecnológicas para ingeniería</h3>
+            <p class="muted">Universidad Nacional del Santa · jun. 2025</p>
+            <a class="cert__preview" href="assets/certs/drones-uns.pdf" rel="noopener" target="_blank">
+              <img alt="Vista previa del certificado Drones: Soluciones tecnológicas para ingeniería" loading="lazy"
+                src="assets/certs/previews/drones-uns-p1.png" />
+            </a>
+            <a class="link" data-i18n="cert_view" href="assets/certs/drones-uns.pdf" rel="noopener" target="_blank">Ver
+              certificado (PDF)</a>
+          </article>
         </div>
       </div>
     </section>
+
     <!-- CONTACTO -->
     <section class="section reveal" id="contact">
       <div class="container">
         <header class="section__head">
           <h2 data-i18n="contact_title">Contacto</h2>
         </header>
+
         <div class="grid grid--2">
           <div class="card">
             <h3 class="h3" data-i18n="contact_talk_title">Hablemos</h3>
@@ -391,6 +514,7 @@
               </a>
             </div>
           </div>
+
           <form class="card form" id="contactForm">
             <h3 class="h3" data-i18n="form_title">Mensaje rápido</h3>
             <label class="field">
@@ -412,12 +536,80 @@
       </div>
     </section>
   </main>
+
   <footer class="footer">
     <div class="container footer__inner">
       <p class="muted">© <span id="year"></span> Jhoan Hernández · <span data-i18n="footer_made">Hecho con HTML, CSS y
           JavaScript</span></p>
     </div>
   </footer>
+
+  <!-- Command palette -->
+  <dialog class="palette" data-i18n-aria="palette_aria" id="cmdPalette">
+    <div class="palette__inner">
+      <div class="palette__head">
+        <p class="palette__title" data-i18n="palette_title">Ir a…</p>
+        <button aria-label="Cerrar" class="palette__close" data-action="close" data-i18n-aria="palette_close_aria"
+          type="button">✕</button>
+      </div>
+
+      <div class="palette__search">
+        <span class="sr-only" data-i18n="palette_search_label">Buscar</span>
+        <input autocomplete="off" data-i18n-placeholder="palette_search_placeholder" id="cmdSearch"
+          placeholder="Buscar…" type="text" />
+      </div>
+
+      <div class="palette__list" id="cmdList" role="list">
+        <button class="palette__item" type="button" data-href="#about">
+          <span class="palette__name" data-i18n="nav_about">Sobre mí</span>
+          <span class="palette__hint">#about</span>
+        </button>
+        <button class="palette__item" type="button" data-href="#skills">
+          <span class="palette__name" data-i18n="nav_skills">Habilidades</span>
+          <span class="palette__hint">#skills</span>
+        </button>
+        <button class="palette__item" type="button" data-href="#engineering">
+          <span class="palette__name" data-i18n="nav_engineering">Ingeniería</span>
+          <span class="palette__hint">#engineering</span>
+        </button>
+        <button class="palette__item" type="button" data-href="#projects">
+          <span class="palette__name" data-i18n="nav_projects">Proyectos</span>
+          <span class="palette__hint">#projects</span>
+        </button>
+        <button class="palette__item" type="button" data-href="#certs">
+          <span class="palette__name" data-i18n="nav_certs">Certificaciones</span>
+          <span class="palette__hint">#certs</span>
+        </button>
+        <button class="palette__item" type="button" data-href="#contact">
+          <span class="palette__name" data-i18n="nav_contact">Contacto</span>
+          <span class="palette__hint">#contact</span>
+        </button>
+
+        <div class="palette__sep" role="separator"></div>
+
+        <button class="palette__item" type="button" data-url="assets/docs/CV-Jhoan-Hernandez.pdf" data-newtab="true">
+          <span class="palette__name" data-i18n="cta_cv">Descargar CV</span>
+          <span class="palette__hint">PDF</span>
+        </button>
+        <button class="palette__item" type="button" data-url="https://github.com/mikehernandez-bit" data-newtab="true">
+          <span class="palette__name">GitHub</span>
+          <span class="palette__hint">↗</span>
+        </button>
+        <button class="palette__item" type="button"
+          data-url="https://www.linkedin.com/in/jhoan-hern%C3%A1ndez-10a779230" data-newtab="true">
+          <span class="palette__name">LinkedIn</span>
+          <span class="palette__hint">↗</span>
+        </button>
+      </div>
+
+      <p class="muted tiny palette__footer">
+        <span class="kbd" id="cmdModKey">Ctrl</span> <span aria-hidden="true">+</span> <span class="kbd">K</span>
+        <span class="muted">·</span>
+        <span data-i18n="palette_tip">Escribe para filtrar y presiona Enter.</span>
+      </p>
+    </div>
+  </dialog>
+
 </body>
 
 </html>

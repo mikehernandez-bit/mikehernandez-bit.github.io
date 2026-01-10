@@ -54,7 +54,33 @@ body{
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
 }
+
+/* =========================
+   Background (Systems vibe)
+========================= */
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: .35;
+  background:
+    radial-gradient(800px 480px at 12% 10%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 60%),
+    radial-gradient(700px 420px at 88% 18%, color-mix(in srgb, var(--accent-2) 22%, transparent), transparent 60%),
+    linear-gradient(to right, color-mix(in srgb, var(--line) 70%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--line) 70%, transparent) 1px, transparent 1px);
+  background-size: auto, auto, 56px 56px, 56px 56px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  body::before{ opacity: .18; }
+}
+
 
 img{ max-width: 100%; display: block; }
 a{ color: inherit; text-decoration: none; }
@@ -410,7 +436,8 @@ a{ color: inherit; text-decoration: none; }
 .project__head{
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  text-align: center;
   gap: 1rem;
   margin-bottom: .5rem;
 }
@@ -471,13 +498,6 @@ input:focus, textarea:focus{
 /* =========================
    Footer
 ========================= */
-.backtop{
-  display: inline-block;
-  margin: 0 0 2.5rem;
-  color: var(--muted);
-}
-.backtop:hover{ text-decoration: underline; }
-
 .footer{
   border-top: 1px solid var(--line);
   padding: 1.2rem 0 2rem;
@@ -485,7 +505,8 @@ input:focus, textarea:focus{
 .footer__inner{
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  text-align: center;
   gap: 1rem;
   flex-wrap: wrap;
 }
@@ -533,3 +554,209 @@ input:focus, textarea:focus{
 /* Language toggle */
 .lang-btn{ min-width: 3.1rem; font-weight: 800; letter-spacing: .06em; }
 .lang-btn #langLabel{ font-size: .9rem; }
+
+
+/* =========================
+   Helpers
+========================= */
+.h3{
+  margin: 0 0 .4rem;
+  font-size: 1.1rem;
+  line-height: 1.25;
+  letter-spacing: .2px;
+}
+
+.nav__link.is-active{
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  color: var(--text);
+}
+
+.cmd-btn__key{
+  font-family: var(--mono);
+  font-weight: 900;
+  letter-spacing: .06em;
+  font-size: .92rem;
+}
+
+/* =========================
+   Terminal (Systems / CLI)
+========================= */
+.terminal{
+  margin-top: 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: color-mix(in srgb, var(--bg) 55%, transparent);
+  box-shadow: var(--shadow);
+}
+
+.terminal__bar{
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  padding: .55rem .8rem;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--card) 72%, transparent);
+}
+
+.terminal__dots{
+  display: inline-flex;
+  gap: .35rem;
+}
+
+.terminal__dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  display: inline-block;
+  opacity: .95;
+}
+.terminal__dot--red{ background: #ef4444; }
+.terminal__dot--yellow{ background: #f59e0b; }
+.terminal__dot--green{ background: #22c55e; }
+
+.terminal__title{
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: .82rem;
+  color: var(--muted);
+}
+
+.terminal__body{
+  margin: 0;
+  padding: .9rem .95rem;
+  font-family: var(--mono);
+  font-size: .93rem;
+  line-height: 1.45;
+  color: color-mix(in srgb, var(--text) 90%, var(--muted));
+  white-space: pre-wrap;
+}
+
+/* =========================
+   Diagram
+========================= */
+.diagram{ margin-top: 1rem; }
+.diagram__wrap{
+  margin-top: .65rem;
+  border-top: 1px dashed var(--line);
+  padding-top: .8rem;
+  overflow: auto;
+}
+.diagram__svg{
+  width: 100%;
+  height: auto;
+  color: color-mix(in srgb, var(--accent) 80%, var(--text));
+  min-width: 620px; /* evita que el diagrama se aplaste demasiado */
+}
+
+/* =========================
+   Command palette
+========================= */
+.kbd{
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: .85rem;
+  padding: .15rem .45rem;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 60%, transparent);
+  color: color-mix(in srgb, var(--text) 90%, var(--muted));
+}
+
+.palette{
+  width: min(580px, calc(100% - 2rem));
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 0;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  box-shadow: var(--shadow);
+}
+
+.palette::backdrop{
+  background: rgba(0,0,0,.55);
+  backdrop-filter: blur(5px);
+}
+
+.palette__inner{ padding: .8rem; }
+
+.palette__head{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: .8rem;
+  padding: .25rem .2rem .6rem;
+}
+
+.palette__title{
+  margin: 0;
+  font-weight: 900;
+}
+
+.palette__close{
+  border: 1px solid var(--line);
+  background: var(--btn);
+  color: var(--text);
+  border-radius: 14px;
+  cursor: pointer;
+  padding: .4rem .6rem;
+}
+
+.palette__search{ padding: .15rem .2rem .65rem; }
+
+.palette__search input{
+  width: 100%;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 70%, transparent);
+  color: var(--text);
+  padding: .75rem .85rem;
+  border-radius: 14px;
+  outline: none;
+}
+
+.palette__list{
+  display: grid;
+  gap: .35rem;
+  max-height: min(55vh, 420px);
+  overflow: auto;
+  padding: .2rem;
+}
+
+.palette__item{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: .8rem;
+  text-align: left;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--card) 82%, transparent);
+  color: var(--text);
+  border-radius: 14px;
+  padding: .65rem .75rem;
+  cursor: pointer;
+}
+
+.palette__item:hover{
+  background: color-mix(in srgb, var(--accent) 12%, var(--card));
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+}
+
+.palette__name{ font-weight: 750; }
+.palette__hint{
+  font-family: var(--mono);
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+.palette__sep{
+  height: 1px;
+  background: var(--line);
+  margin: .35rem .2rem;
+  border-radius: 999px;
+}
+
+.palette__footer{
+  margin: .75rem .2rem .2rem;
+}
