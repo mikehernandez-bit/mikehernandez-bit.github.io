@@ -2,28 +2,24 @@
   const $ = (sel, parent = document) => parent.querySelector(sel);
   const $$ = (sel, parent = document) => Array.from(parent.querySelectorAll(sel));
 
-  const html = document.documentElement;
-
-  // =========================
-  // Footer year
-  // =========================
+  // Año en footer
   const yearEl = $("#year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  // =========================
-  // Theme (dark/light)
-  // =========================
+  // Tema (dark/light)
+  const html = document.documentElement;
   const themeBtn = $("#themeBtn");
 
   function getPreferredTheme() {
     const saved = localStorage.getItem("theme");
     if (saved === "dark" || saved === "light") return saved;
-    const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+    const prefersLight =
+      window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
     return prefersLight ? "light" : "dark";
   }
 
   function setTheme(theme) {
-    html.setAttribute("data-theme", theme);
+    html.dataset.theme = theme;
     localStorage.setItem("theme", theme);
   }
 
@@ -31,271 +27,243 @@
 
   if (themeBtn) {
     themeBtn.addEventListener("click", () => {
-      const current = html.getAttribute("data-theme") || "dark";
-      setTheme(current === "dark" ? "light" : "dark");
+      const current = html.dataset.theme === "light" ? "light" : "dark";
+      setTheme(current === "light" ? "dark" : "light");
     });
   }
 
   // =========================
-  // i18n (ES / EN)
+  // Idioma (ES / EN)
   // =========================
-  const langBtn = $("#langBtn");
-  const langLabel = $("#langLabel");
-
-  const I18N = {
+  const i18n = {
     es: {
-      doc_title: "Jhoan Hernández | Portafolio",
-      meta_desc: "Portafolio de Jhoan Hernández (UNS). Desarrollo de software, proyectos, habilidades, certificaciones y contacto.",
-      og_desc: "Estudiante de Ing. de Sistemas e Informática (UNS). Java, Python, SQL Server, Git. Proyecto destacado: Radar IA.",
-
+      page_title: "Jhoan Hernández | Portafolio",
+      toggle_lang_sr: "Cambiar idioma",
       skip_link: "Saltar al contenido",
-      menu_open_sr: "Abrir menú",
+      aria_go_top: "Ir al inicio",
+      aria_main_nav: "Navegación principal",
+      open_menu: "Abrir menú",
       nav_about: "Sobre mí",
       nav_skills: "Habilidades",
       nav_projects: "Proyectos",
       nav_certs: "Certificaciones",
       nav_contact: "Contacto",
-      theme_toggle_sr: "Cambiar tema",
-      lang_toggle_sr: "Cambiar idioma",
-      theme_toggle_aria: "Cambiar tema",
-      lang_toggle_aria: "Cambiar idioma",
 
       hero_badge: "UNS · Ing. de Sistemas e Informática",
-      hero_title: "Estudiante de Ingeniería de Sistemas e Informática <span class=\"accent\">| Software Developer</span>",
-      hero_lead: "Soy <strong>Jhoan Hernández</strong>. Me apasiona el desarrollo de software y la lógica de programación. Trabajo con <strong>Java</strong>, <strong>Python</strong>, <strong>SQL Server</strong> y <strong>Git</strong>.",
-      btn_view_projects: "Ver proyectos",
-      btn_contact: "Contactar",
-      btn_download_cv: "Descargar CV",
+      hero_title: 'Estudiante de Ingeniería de Sistemas e Informática <span class="accent">| Software Developer</span>',
+      hero_lead:
+        'Soy <strong>Jhoan Hernández</strong>. Me apasiona el desarrollo de software y la lógica de programación. Trabajo con <strong>Java</strong>, <strong>Python</strong>, <strong>SQL Server</strong> y <strong>Git</strong>.',
+      cta_projects: "Ver proyectos",
+      cta_contact: "Contactar",
+      cta_cv: "Descargar CV",
 
       profile_role: "Estudiante · UNS",
-      quick_stack_label: "Stack",
-      quick_stack_value: "Java · Python · SQL Server · Git",
-      quick_interest_label: "Interés",
-      quick_interest_value: "Backend · Datos · Web",
+      quick_stack: "Stack",
+      quick_interest: "Interés",
 
       about_title: "Sobre mí",
-      about_subtitle: "Resumen profesional, claro y directo.",
-      about_p1: "Estudiante de Ingeniería de Sistemas de la <strong>Universidad Nacional del Santa (UNS)</strong>, apasionado por el desarrollo de software y la lógica de programación.",
-      about_p2: "Tengo experiencia usando <strong>Java</strong> para aplicaciones orientadas a objetos y <strong>Python</strong> para automatización, scripts y manejo de datos. Complemento con <strong>SQL</strong> (SQL Server), control de versiones con <strong>Git/GitHub</strong> y fundamentos de redes.",
-      about_p3: "Busco una oportunidad de <strong>Prácticas Preprofesionales</strong> donde pueda aportar y aprender en un entorno real.",
+      about_subtitle: "Tu resumen profesional, claro y directo.",
+      about_p1:
+        'Estudiante de Ingeniería de Sistemas de la <strong>Universidad Nacional del Santa (UNS)</strong>, apasionado por el desarrollo de software y la lógica de programación.',
+      about_p2:
+        'Tengo experiencia usando <strong>Java</strong> para aplicaciones orientadas a objetos y <strong>Python</strong> para automatización, scripts y manejo de datos. Complemento con <strong>SQL</strong> (SQL Server), control de versiones con <strong>Git/GitHub</strong> y fundamentos de redes.',
+      about_p3:
+        'Busco una oportunidad de <strong>Prácticas Preprofesionales</strong> donde pueda aportar y aprender en un entorno real.',
 
       skills_title: "Habilidades",
-      skills_subtitle: "Organizadas para lectura rápida.",
+      skills_subtitle: "Ordenadas y respaldadas por proyectos.",
       skills_languages: "Lenguajes",
       skills_frameworks: "Frameworks",
       skills_databases: "Bases de datos",
-      skills_tools: "Herramientas / Metodologías",
+      skills_data: "Datos",
+      skills_tools_methods: "Herramientas / Metodologías",
 
       projects_title: "Proyectos",
-      projects_subtitle: "Evidencia real (proyecto + enfoque + stack).",
+      projects_subtitle: "Tu evidencia. Un proyecto bien presentado vale oro.",
       pill_featured: "Destacado",
-      radar_desc: "Pipeline en Python que recolecta publicaciones y comentarios de subreddits de IA, calcula sentimiento y muestra KPIs + gráficos en un dashboard web.",
-      radar_b1: "ETL: extracción, guardado y actualización de datos",
-      radar_b2: "API: endpoints para KPIs, actividad y filtros por fecha",
-      radar_b3: "Visualización: métricas, tabla y gráficos",
+      radar_desc:
+        "Pipeline en Python que recolecta publicaciones y comentarios de subreddits de IA, calcula sentimiento y muestra KPIs + gráficos en un dashboard web.",
+      radar_li1: "ETL: extracción, guardado y actualización de datos",
+      radar_li2: "API: endpoints para KPIs, actividad y filtros por fecha",
+      radar_li3: "Visualización: métricas, tabla y gráficos",
       btn_code: "Código",
 
-      research_title: "Investigación — Detección de EPP con YOLO",
-      pill_in_progress: "En curso",
-      research_desc: "Semillero de investigación: desarrollo de un sistema para detectar Equipos de Protección Personal (EPP) usando modelos YOLO y una aplicación en tiempo real.",
-      research_b1: "Objetivo: mejorar seguridad industrial con visión por computadora",
-      research_b2: "Salida: artículo científico (en preparación)",
-      research_b3: "Nota: sin repositorio/demostración pública por el momento",
+      research_title: "Investigación — Detección de EPP en tiempo real (YOLO)",
+      pill_inprogress: "En curso",
+      research_desc:
+        'Detección de equipo de protección personal (EPP) en entornos industriales mediante Deep Learning. <span class="muted">2025–Actual</span><br />YOLO (v8/v5) · Edge Computing · App en tiempo real (webcam)',
+      research_real_time: "Tiempo real",
 
       certs_title: "Licencias y certificaciones",
-      certs_subtitle: "PDF + vista previa (primera página).",
-      cert_view_pdf: "Ver certificado (PDF)",
-      cert_scrum_meta: "SCRUMstudy · dic. 2025",
-      cert_sql_title: "SQL Server – Base de Datos",
-      cert_sql_meta: "Universidad Nacional de Ingeniería · mar. 2025",
-      cert_net_title: "Conceptos básicos de redes",
-      cert_net_meta: "Cisco Networking Academy · ago. 2025",
-      cert_pt_title: "Introducción a Cisco Packet Tracer",
-      cert_pt_meta: "Cisco Networking Academy · ago. 2025",
-      cert_intern_title: "Pasantía Nacional Universitaria",
-      cert_intern_meta: "Universidad Nacional del Santa · dic. 2025",
+      certs_subtitle: "Certificados y cursos relevantes para mi perfil profesional.",
+      cert_view: "Ver certificado (PDF)",
 
       contact_title: "Contacto",
       contact_subtitle: "Fácil de encontrarte. Sin complicaciones.",
       contact_talk_title: "Hablemos",
-      contact_talk_desc: "Si te interesa mi perfil para prácticas o proyectos, puedes escribirme por email o LinkedIn.",
-      btn_email: "Enviar correo",
-      btn_linkedin: "LinkedIn",
-      btn_github: "GitHub",
-      contact_form_title: "Mensaje rápido",
-      field_name: "Nombre",
-      field_email: "Email",
-      field_message: "Mensaje",
-      form_btn: "Preparar correo",
-      back_to_top: "Volver arriba ↑",
+      contact_talk_p:
+        "Si te interesa mi perfil para prácticas o proyectos, puedes escribirme por email o LinkedIn.",
+      btn_send_email: "Enviar correo",
+
+      form_title: "Mensaje rápido",
+      label_name: "Nombre",
+      label_email: "Email",
+      label_message: "Mensaje",
+      btn_prepare_email: "Preparar correo",
+
+      backtop: "Volver arriba ↑",
       footer_made: "Hecho con HTML, CSS y JavaScript",
 
-      form_err_fill: "Por favor completa todos los campos.",
-      form_opening: "Abriendo tu cliente de correo…",
-      form_subject: "Portafolio | Mensaje de",
+      form_fill_required: "Por favor completa todos los campos.",
+      form_invalid_email: "Email inválido.",
+      form_opening_client: "Abriendo tu cliente de correo…",
+      form_subject_prefix: "Portafolio | Mensaje de",
       form_body_name: "Nombre",
       form_body_email: "Email",
-      form_body_message: "Mensaje",
+      form_body_message: "Mensaje"
     },
-
     en: {
-      doc_title: "Jhoan Hernández | Portfolio",
-      meta_desc: "Portfolio of Jhoan Hernández (UNS). Software development, projects, skills, certifications and contact.",
-      og_desc: "Systems Engineering student (UNS). Java, Python, SQL Server, Git. Featured project: Radar IA.",
-
+      page_title: "Jhoan Hernández | Portfolio",
+      toggle_lang_sr: "Switch language",
       skip_link: "Skip to content",
-      menu_open_sr: "Open menu",
+      aria_go_top: "Back to top",
+      aria_main_nav: "Main navigation",
+      open_menu: "Open menu",
       nav_about: "About",
       nav_skills: "Skills",
       nav_projects: "Projects",
       nav_certs: "Certifications",
       nav_contact: "Contact",
-      theme_toggle_sr: "Toggle theme",
-      lang_toggle_sr: "Toggle language",
-      theme_toggle_aria: "Toggle theme",
-      lang_toggle_aria: "Toggle language",
 
-      hero_badge: "UNS · Systems Engineering and Informatics",
-      hero_title: "Systems Engineering and Informatics Student <span class=\"accent\">| Software Developer</span>",
-      hero_lead: "I'm <strong>Jhoan Hernández</strong>. I'm passionate about software development and programming logic. I work with <strong>Java</strong>, <strong>Python</strong>, <strong>SQL Server</strong>, and <strong>Git</strong>.",
-      btn_view_projects: "View projects",
-      btn_contact: "Contact",
-      btn_download_cv: "Download CV",
+      hero_badge: "UNS · Systems & Computer Engineering",
+      hero_title: 'Systems & Computer Engineering Student <span class="accent">| Software Developer</span>',
+      hero_lead:
+        'I’m <strong>Jhoan Hernández</strong>. I’m passionate about software development and programming logic. I work with <strong>Java</strong>, <strong>Python</strong>, <strong>SQL Server</strong> and <strong>Git</strong>.',
+      cta_projects: "View projects",
+      cta_contact: "Contact",
+      cta_cv: "Download CV",
 
       profile_role: "Student · UNS",
-      quick_stack_label: "Stack",
-      quick_stack_value: "Java · Python · SQL Server · Git",
-      quick_interest_label: "Focus",
-      quick_interest_value: "Backend · Data · Web",
+      quick_stack: "Stack",
+      quick_interest: "Focus",
 
       about_title: "About",
-      about_subtitle: "A clear and direct professional summary.",
-      about_p1: "Systems Engineering student at <strong>Universidad Nacional del Santa (UNS)</strong>, passionate about software development and programming logic.",
-      about_p2: "Experience using <strong>Java</strong> for object-oriented applications and <strong>Python</strong> for automation, scripting, and data handling. Complemented with <strong>SQL</strong> (SQL Server), version control with <strong>Git/GitHub</strong>, and networking fundamentals.",
-      about_p3: "Seeking a <strong>pre-professional internship</strong> where I can contribute and learn in a real-world environment.",
+      about_subtitle: "A clear, direct professional summary.",
+      about_p1:
+        'Systems Engineering student at <strong>Universidad Nacional del Santa (UNS)</strong>, passionate about software development and programming logic.',
+      about_p2:
+        'I have experience using <strong>Java</strong> for object-oriented applications and <strong>Python</strong> for automation, scripting and data handling. I complement this with <strong>SQL</strong> (SQL Server), version control with <strong>Git/GitHub</strong>, and networking fundamentals.',
+      about_p3:
+        'I’m seeking a <strong>pre-professional internship</strong> where I can contribute and learn in a real environment.',
 
       skills_title: "Skills",
-      skills_subtitle: "Organized for fast scanning.",
+      skills_subtitle: "Organized and backed by projects.",
       skills_languages: "Languages",
       skills_frameworks: "Frameworks",
       skills_databases: "Databases",
-      skills_tools: "Tools / Methodologies",
+      skills_data: "Data",
+      skills_tools_methods: "Tools / Methodologies",
 
       projects_title: "Projects",
-      projects_subtitle: "Real evidence (project + approach + stack).",
+      projects_subtitle: "Your evidence. A well-presented project is worth gold.",
       pill_featured: "Featured",
-      radar_desc: "Python pipeline that collects posts and comments from AI subreddits, runs sentiment analysis, and shows KPIs + charts in a web dashboard.",
-      radar_b1: "ETL: extract, store, and refresh data",
-      radar_b2: "API: endpoints for KPIs, activity, and date filters",
-      radar_b3: "Visualization: metrics, tables, and charts",
+      radar_desc:
+        "Python pipeline that collects posts and comments from AI subreddits, performs sentiment analysis, and shows KPIs + charts in a web dashboard.",
+      radar_li1: "ETL: extract, store, and update data",
+      radar_li2: "API: endpoints for KPIs, activity, and date filters",
+      radar_li3: "Visualization: metrics, table, and charts",
       btn_code: "Code",
 
-      research_title: "Research — PPE Detection with YOLO",
-      pill_in_progress: "In progress",
-      research_desc: "Research group project: building a system to detect Personal Protective Equipment (PPE) using YOLO models and a real-time application.",
-      research_b1: "Goal: improve industrial safety with computer vision",
-      research_b2: "Output: scientific paper (in preparation)",
-      research_b3: "Note: no public repository/demo yet",
+      research_title: "Research — Real-time PPE detection (YOLO)",
+      pill_inprogress: "In progress",
+      research_desc:
+        'Personal protective equipment (PPE) detection in industrial environments using Deep Learning. <span class="muted">2025–Present</span><br />YOLO (v8/v5) · Edge Computing · Real-time app (webcam)',
+      research_real_time: "Real-time",
 
-      certs_title: "Licenses and certifications",
-      certs_subtitle: "PDF + preview (first page).",
-      cert_view_pdf: "View certificate (PDF)",
-      cert_scrum_meta: "SCRUMstudy · Dec 2025",
-      cert_sql_title: "SQL Server – Database",
-      cert_sql_meta: "Universidad Nacional de Ingeniería · Mar 2025",
-      cert_net_title: "Networking Basics",
-      cert_net_meta: "Cisco Networking Academy · Aug 2025",
-      cert_pt_title: "Introduction to Cisco Packet Tracer",
-      cert_pt_meta: "Cisco Networking Academy · Aug 2025",
-      cert_intern_title: "National University Internship",
-      cert_intern_meta: "Universidad Nacional del Santa · Dec 2025",
+      certs_title: "Licenses & certifications",
+      certs_subtitle: "Certificates and courses relevant to my professional profile.",
+      cert_view: "View certificate (PDF)",
 
       contact_title: "Contact",
       contact_subtitle: "Easy to reach. No hassle.",
-      contact_talk_title: "Let's talk",
-      contact_talk_desc: "If you're interested in my profile for internships or projects, feel free to reach out by email or LinkedIn.",
-      btn_email: "Send email",
-      btn_linkedin: "LinkedIn",
-      btn_github: "GitHub",
-      contact_form_title: "Quick message",
-      field_name: "Name",
-      field_email: "Email",
-      field_message: "Message",
-      form_btn: "Prepare email",
-      back_to_top: "Back to top ↑",
+      contact_talk_title: "Let’s talk",
+      contact_talk_p:
+        "If you're interested in my profile for internships or projects, you can reach me via email or LinkedIn.",
+      btn_send_email: "Send email",
+
+      form_title: "Quick message",
+      label_name: "Name",
+      label_email: "Email",
+      label_message: "Message",
+      btn_prepare_email: "Compose email",
+
+      backtop: "Back to top ↑",
       footer_made: "Built with HTML, CSS and JavaScript",
 
-      form_err_fill: "Please fill in all fields.",
-      form_opening: "Opening your email client…",
-      form_subject: "Portfolio | Message from",
+      form_fill_required: "Please fill in all fields.",
+      form_invalid_email: "Invalid email.",
+      form_opening_client: "Opening your email client…",
+      form_subject_prefix: "Portfolio | Message from",
       form_body_name: "Name",
       form_body_email: "Email",
-      form_body_message: "Message",
-    },
+      form_body_message: "Message"
+    }
   };
+
+  const langBtn = $("#langBtn");
+  const langLabel = $("#langLabel");
 
   function getPreferredLang() {
     const saved = localStorage.getItem("lang");
-    if (saved === "es" || saved === "en") return saved;
-
-    // Browser preference
+    if (saved && (saved === "es" || saved === "en")) return saved;
     const navLang = (navigator.language || "es").toLowerCase();
-    return navLang.startsWith("en") ? "en" : "es";
+    return navLang.startsWith("es") ? "es" : "en";
   }
 
   let currentLang = getPreferredLang();
 
   function t(key) {
-    return (I18N[currentLang] && I18N[currentLang][key]) || I18N.es[key] || key;
+    return (i18n[currentLang] && i18n[currentLang][key]) || key;
   }
 
-  function applyLang() {
-    html.setAttribute("lang", currentLang);
-
-    // Text nodes
-    $$('[data-i18n]').forEach((el) => {
-      const key = el.dataset.i18n;
-      el.textContent = t(key);
-    });
-
-    // HTML nodes (allow strong/span)
-    $$('[data-i18n-html]').forEach((el) => {
-      const key = el.dataset.i18nHtml;
-      el.innerHTML = t(key);
-    });
-
-    // Document metadata
-    document.title = t("doc_title");
-    const metaDesc = $('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute("content", t("meta_desc"));
-
-    const ogDesc = $('meta[property="og:description"]');
-    if (ogDesc) ogDesc.setAttribute("content", t("og_desc"));
-
-    // A11y labels
-    if (themeBtn) themeBtn.setAttribute("aria-label", t("theme_toggle_aria"));
-    if (langBtn) langBtn.setAttribute("aria-label", t("lang_toggle_aria"));
-
-    // Button label shows the target language
-    if (langLabel) langLabel.textContent = currentLang === "es" ? "EN" : "ES";
-  }
-
-  function setLang(next) {
-    currentLang = next;
+  function applyLang(lang) {
+    currentLang = lang === "en" ? "en" : "es";
     localStorage.setItem("lang", currentLang);
-    applyLang();
+    document.documentElement.lang = currentLang;
+    document.title = i18n[currentLang].page_title;
+
+    // label shows the OTHER language (so the user knows what will happen)
+    if (langLabel) langLabel.textContent = currentLang === "es" ? "EN" : "ES";
+
+    $$("[data-i18n]").forEach((el) => {
+      const key = el.dataset.i18n;
+      const val = i18n[currentLang][key];
+      if (typeof val === "string") el.textContent = val;
+    });
+
+    $$("[data-i18n-html]").forEach((el) => {
+      const key = el.dataset.i18nHtml;
+      const val = i18n[currentLang][key];
+      if (typeof val === "string") el.innerHTML = val;
+    });
+
+    $$("[data-i18n-aria]").forEach((el) => {
+      const key = el.dataset.i18nAria;
+      const val = i18n[currentLang][key];
+      if (typeof val === "string") el.setAttribute("aria-label", val);
+    });
   }
 
-  applyLang();
+  applyLang(currentLang);
 
   if (langBtn) {
     langBtn.addEventListener("click", () => {
-      setLang(currentLang === "es" ? "en" : "es");
+      applyLang(currentLang === "es" ? "en" : "es");
     });
   }
 
   // =========================
-  // Mobile menu
+  // Menú móvil
   // =========================
   const menuBtn = $("#menuBtn");
   const menu = $("#navMenu");
@@ -306,99 +274,86 @@
     menuBtn.setAttribute("aria-expanded", "false");
   }
 
-  function openMenu() {
+  function toggleMenu() {
     if (!menu || !menuBtn) return;
-    menu.classList.add("is-open");
-    menuBtn.setAttribute("aria-expanded", "true");
+    const isOpen = menu.classList.toggle("is-open");
+    menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
   }
 
-  if (menuBtn && menu) {
-    menuBtn.addEventListener("click", () => {
-      const isOpen = menu.classList.contains("is-open");
-      isOpen ? closeMenu() : openMenu();
-    });
+  if (menuBtn) {
+    menuBtn.addEventListener("click", toggleMenu);
+  }
 
-    // Close on outside click
-    document.addEventListener("click", (e) => {
-      const target = e.target;
-      const clickedInside = menu.contains(target) || menuBtn.contains(target);
-      if (!clickedInside) closeMenu();
-    });
-
-    // Close with ESC
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeMenu();
-    });
-
-    // Close after clicking a link
+  // Cerrar menú al hacer click en un link
+  if (menu) {
     $$(".nav__link", menu).forEach((a) => a.addEventListener("click", closeMenu));
   }
 
+  // Cerrar con ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+
   // =========================
-  // Reveal on scroll
+  // Animación reveal on scroll
   // =========================
-  const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!reduceMotion) {
-    const revealEls = $$(".reveal");
+  const revealEls = $$(".reveal");
+  if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) entry.target.classList.add("is-visible");
         });
       },
-      { threshold: 0.12 }
+      { threshold: 0.15 }
     );
-
     revealEls.forEach((el) => io.observe(el));
   } else {
-    $$(".reveal").forEach((el) => el.classList.add("is-visible"));
+    revealEls.forEach((el) => el.classList.add("is-visible"));
   }
 
   // =========================
-  // Avatar fallback (no inline JS)
-  // =========================
-  const profileCard = $("#profileCard") || $(".profile");
-  const avatar = $(".profile__img");
-  if (avatar && profileCard) {
-    avatar.addEventListener("error", () => {
-      profileCard.classList.add("profile--fallback");
-    });
-  }
-
-  // =========================
-  // Contact form: generate mailto
+  // Formulario -> mailto
   // =========================
   const form = $("#contactForm");
-  const formMsg = $("#formMsg");
+  const msg = $("#formMsg");
 
   function setMsg(text) {
-    if (formMsg) formMsg.textContent = text;
+    if (!msg) return;
+    msg.textContent = text;
+  }
+
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
   if (form) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-
       const data = new FormData(form);
       const name = String(data.get("name") || "").trim();
       const email = String(data.get("email") || "").trim();
       const message = String(data.get("message") || "").trim();
 
       if (!name || !email || !message) {
-        setMsg(t("form_err_fill"));
+        setMsg(t("form_fill_required"));
+        return;
+      }
+      if (!isValidEmail(email)) {
+        setMsg(t("form_invalid_email"));
         return;
       }
 
       const to = "ing.mikehernandez@gmail.com";
 
-      const subject = encodeURIComponent(`${t("form_subject")} ${name}`);
+      const subject = encodeURIComponent(`${t("form_subject_prefix")} ${name}`);
       const body = encodeURIComponent(
         `${t("form_body_name")}: ${name}\n${t("form_body_email")}: ${email}\n\n${t("form_body_message")}:\n${message}\n`
       );
 
       window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
 
-      setMsg(t("form_opening"));
+      setMsg(t("form_opening_client"));
       form.reset();
       setTimeout(() => setMsg(""), 4000);
     });
