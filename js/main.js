@@ -76,8 +76,11 @@
       hero_badge: "UNS · Ing. de Sistemas e Informática",
       hero_title:
         'Estudiante de Ingeniería de Sistemas e Informática <span class="accent">| Software Developer</span>',
-      hero_lead:
-        'Soy <strong>Jhoan Hernández</strong>. Me enfoco en desarrollar soluciones de software con base en lógica, buenas prácticas y control de versiones. También construyo interfaces web responsivas con <strong>HTML</strong>, <strong>CSS</strong> y <strong>JavaScript</strong>. Trabajo con <strong>Java</strong>, <strong>Python</strong>, <strong>SQL Server</strong> y <strong>Git</strong>.',
+      hero_lead: `Soy <strong>Jhoan Hernández</strong>. Desarrollo aplicaciones web y backend con enfoque en
+      <strong>buenas prácticas</strong>, <strong>lógica</strong> y <strong>control de versiones</strong>.
+      He construido proyectos con <strong>Java</strong> (<strong>Spring Boot</strong>) y <strong>Python</strong>, integrando bases de datos
+      (<strong>PostgreSQL</strong>/<strong>SQL Server</strong>), y también interfaces responsivas con
+      <strong>HTML</strong>, <strong>CSS</strong> y <strong>JavaScript</strong>.`,
       cta_projects: "Ver proyectos",
       cta_contact: "Contactar",
       cta_cv: "Descargar CV",
@@ -87,7 +90,7 @@
       quick_stack: "Stack",
       quick_stack_value: "Java · Python · SQL Server · Git",
       quick_interest: "Interés",
-      quick_interest_value: "Frontend · Backend · Datos · IA · Redes",
+      quick_interest_value: "Frontend · Backend · IA",
       quick_availability: "Disponibilidad",
       quick_availability_value: "Prácticas Preprofesionales 2026",
 
@@ -99,14 +102,17 @@
 
       // About
       about_title: "Sobre mí",
-      about_subtitle: "Tu resumen profesional, claro y directo.",
-      about_p1:
-        'Estudiante de Ingeniería de Sistemas e Informática en la <strong>Universidad Nacional del Santa (UNS)</strong>. Me interesa construir software claro, mantenible y orientado a resolver problemas reales.',
-      about_p2:
-        'He trabajado con <strong>Java</strong> (POO) y <strong>Python</strong> para automatización y manejo de datos. Uso <strong>SQL Server</strong> para consultas y modelado, y <strong>Git/GitHub</strong> para control de versiones. En frontend, desarrollo interfaces con <strong>HTML/CSS/JavaScript</strong>, aplicando diseño responsivo y buenas prácticas. También cuento con fundamentos de <strong>redes</strong> y metodologías como <strong>Scrum</strong>.',
-      about_p3:
-        'Busco <strong>Prácticas Preprofesionales 2026</strong> en desarrollo de software, donde pueda aportar, aprender del equipo y mejorar continuamente.',
+      
+      about_p1: `Estudiante de Ingeniería de Sistemas e Informática en la <strong>Universidad Nacional del Santa (UNS)</strong>.
+      Me enfoco en construir software claro, mantenible y orientado a resolver problemas reales.`,
 
+      about_p2: `He desarrollado <strong>aplicaciones web</strong> y <strong>backend</strong> con <strong>Java (Spring Boot)</strong> y <strong>Python</strong>, integrando <strong>bases de datos</strong> (<strong>PostgreSQL</strong>, <strong>SQL Server</strong>)
+      y consumo de <strong>APIs</strong>. En frontend, trabajo con <strong>HTML/CSS/JavaScript</strong> aplicando diseño responsivo.
+      Uso <strong>Git/GitHub</strong> para control de versiones y flujo de trabajo.`,
+
+      about_p3: `Busco <strong>Prácticas Preprofesionales 2026</strong> en desarrollo de software (frontend, backend o full-stack),
+      donde pueda aportar con proyectos reales, aprender del equipo y mejorar continuamente.`,
+      
       // Skills
       skills_title: "Habilidades",
       skills_subtitle: "Ordenadas y respaldadas por proyectos.",
@@ -138,7 +144,7 @@
       // Projects
       projects_title: "Proyectos",
       projects_subtitle: "Tu evidencia. Un proyecto bien presentado vale oro.",
-      pill_featured: "Destacado",
+      pill_featured: "Analítica Web",
       radar_title: "Radar IA — Dashboard de analítica de Reddit",
       radar_desc:
         "Pipeline en Python que recolecta publicaciones y comentarios de subreddits de IA, calcula sentimiento y muestra KPIs + gráficos en un dashboard web.",
@@ -149,13 +155,21 @@
       btn_code: "Código",
 
       research_title: "Investigación — Detección de EPP en tiempo real (YOLO)",
-      pill_inprogress: "En curso",
+      pill_inprogress: "Investigación",
       research_desc:
         'Detección de equipo de protección personal (EPP) en entornos industriales mediante Deep Learning. <span class="muted">2025–Actual</span><br />YOLO (v8/v5) · Edge Computing · App en tiempo real (webcam)',
       research_real_time: "Tiempo real",
       research_li1: "Entrenamiento y comparación de arquitecturas YOLO (v8s/v8n/v5s/v5n/v5l) para detección multiclase de EPP.",
       research_li2: "Desarrollo de aplicación de escritorio en tiempo real usando webcam e integración con móvil (p.ej. iVCam).",
       research_li3: "Evaluación con métricas estándar (Precisión, Recall, F1-Score, mAP) y análisis visual de predicciones.",
+
+      pill_fullstack: "E-commerce",
+      karnaval_title: "BAZAR — El Karnaval (E-commerce + Stripe)",
+      karnaval_desc: "Tienda demo full-stack con Spring Boot + Thymeleaf: login, carrito y pagos con Stripe.",
+      karnaval_li1: "Autenticación y vistas (login, dashboard, catálogo).",
+      karnaval_li2: "Carrito de compras con JS (agregar, quitar, contador).",
+      karnaval_li3: "Checkout integrado con Stripe (modo prueba).",
+      btn_readme: "Guía",
 
       // Certs
       certs_title: "Licencias y certificaciones",
@@ -238,8 +252,11 @@
       hero_badge: "UNS · Systems & Computer Engineering",
       hero_title:
         'Systems & Computer Engineering Student <span class="accent">| Software Developer</span>',
-      hero_lead:
-        'I’m <strong>Jhoan Hernández</strong>. I build software solutions grounded in logic, best practices, and version control. I also create responsive web interfaces with <strong>HTML</strong>, <strong>CSS</strong> and <strong>JavaScript</strong>. I work with <strong>Java</strong>, <strong>Python</strong>, <strong>SQL Server</strong> and <strong>Git</strong>.',
+      hero_lead: `I'm <strong>Jhoan Hernández</strong>. I build web applications and backend services focused on
+      <strong>best practices</strong>, <strong>logic</strong>, and <strong>version control</strong>.
+      I've built projects with <strong>Java</strong> (<strong>Spring Boot</strong>) and <strong>Python</strong>, integrating databases
+      (<strong>PostgreSQL</strong>/<strong>SQL Server</strong>), plus responsive interfaces using
+      <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong>.`,
       cta_projects: "View projects",
       cta_contact: "Contact",
       cta_cv: "Download CV",
@@ -249,7 +266,7 @@
       quick_stack: "Stack",
       quick_stack_value: "Java · Python · SQL Server · Git",
       quick_interest: "Focus",
-      quick_interest_value: "Frontend · Backend · Data · AI · Networks",
+      quick_interest_value: "Frontend · Backend · AI",
       quick_availability: "Availability",
       quick_availability_value: "Pre-professional internships 2026",
 
@@ -262,13 +279,17 @@
       // About
       about_title: "About",
       about_subtitle: "A clear, direct professional summary.",
-      about_p1:
-        'Systems & Computer Engineering student at <strong>Universidad Nacional del Santa (UNS)</strong>. I’m interested in building clear, maintainable software that solves real problems.',
-      about_p2:
-        'I’ve worked with <strong>Java</strong> (OOP) and <strong>Python</strong> for automation and data handling. I use <strong>SQL Server</strong> for querying and modeling, and <strong>Git/GitHub</strong> for version control. On the frontend, I build interfaces with <strong>HTML/CSS/JavaScript</strong>, applying responsive design and best practices. I also have fundamentals in <strong>networking</strong> and methodologies like <strong>Scrum</strong>.',
-      about_p3:
-        'I’m seeking <strong>pre-professional internships in 2026</strong> in software development, where I can contribute, learn from the team, and keep improving.',
+      
+      about_p1: `Systems and Computer Engineering student at <strong>Universidad Nacional del Santa (UNS)</strong>.
+      I focus on building clear, maintainable software that solves real problems.`,
 
+      about_p2: `I’ve built <strong>web applications</strong> and <strong>backend</strong> solutions with <strong>Java (Spring Boot)</strong> and <strong>Python</strong>, integrating <strong>databases</strong> (<strong>PostgreSQL</strong>, <strong>SQL Server</strong>)
+      and consuming <strong>APIs</strong>. On the frontend, I work with <strong>HTML/CSS/JavaScript</strong> applying responsive design.
+      I use <strong>Git/GitHub</strong> for version control and workflow.`,
+
+      about_p3: `I'm looking for <strong>2026 Pre-professional Internships</strong> in software development (frontend, backend, or full-stack),
+      where I can contribute with real projects, learn from the team, and continuously improve.`,
+      
       // Skills
       skills_title: "Skills",
       skills_subtitle: "Organized and backed by projects.",
@@ -300,7 +321,7 @@
       // Projects
       projects_title: "Projects",
       projects_subtitle: "Your proof. A well-presented project is worth gold.",
-      pill_featured: "Featured",
+      pill_featured: "Web Analytics",
       radar_title: "Radar IA — Reddit Analytics Dashboard",
       radar_desc:
         "Python pipeline that collects posts and comments from AI subreddits, performs sentiment analysis, and shows KPIs + charts in a web dashboard.",
@@ -311,13 +332,21 @@
       btn_code: "Code",
 
       research_title: "Research — Real-time PPE detection (YOLO)",
-      pill_inprogress: "In progress",
+      pill_inprogress: "investigation",
       research_desc:
         'Personal protective equipment (PPE) detection in industrial environments using Deep Learning. <span class="muted">2025–Present</span><br />YOLO (v8/v5) · Edge Computing · Real-time app (webcam)',
       research_real_time: "Real-time",
       research_li1: "Training and comparison of YOLO architectures (v8s/v8n/v5s/v5n/v5l) for multi-class PPE detection.",
       research_li2: "Development of a real-time desktop application using webcam and mobile integration (e.g., iVCam).",
       research_li3: "Evaluation with standard metrics (Precision, Recall, F1-Score, mAP) and visual analysis of predictions.",
+
+      pill_fullstack: "E-commerce",
+      karnaval_title: "BAZAR — El Karnaval (E-commerce + Stripe)",
+      karnaval_desc: "Full-stack demo store with Spring Boot + Thymeleaf: login, cart, and Stripe payments.",
+      karnaval_li1: "Auth + views (login, dashboard, catalog).",
+      karnaval_li2: "Shopping cart with JS (add/remove/items counter).",
+      karnaval_li3: "Stripe checkout integration (test mode).",
+      btn_readme: "Guide",
 
       // Certs
       certs_title: "Licenses & certifications",
